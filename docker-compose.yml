@@ -36,3 +36,15 @@ services:
     network_mode: bridge
     ports:
       - "3306"
+  solr:
+    image: solr:6-alpine
+    entrypoint:
+      - docker-entrypoint.sh
+      - solr-precreate
+      - drupal
+      - /solr-conf
+    ports:
+      - "8983"
+    volumes:
+      - ./docker/solr:/solr-conf
+    network_mode: bridge
