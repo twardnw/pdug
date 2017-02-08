@@ -22,6 +22,9 @@ services:
 
       # APC Support is by default enabled, but in some cases it can make issues, change to 0 to disable:
       APC: 1
+      AMAZEEIO_SOLR_HOST: solr
+      AMAZEEIO_SOLR_CORE: drupal
+      AMAZEEIO_SOLR_PORT: 8983
 
 
 ################################################
@@ -44,7 +47,7 @@ services:
       - drupal
       - /solr-conf
     ports:
-      - "8983"
+      - 8983:8983
     volumes:
       - ./docker/solr:/solr-conf
     network_mode: bridge
